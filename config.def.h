@@ -31,13 +31,6 @@ static const Rule rules[] = {
 	/* class      instance    title           tags mask     isfloating   monitor */
 	{ "Zathura",  NULL,       NULL,           0,            1,           -1 },
 	{ "Sxiv",     NULL,       NULL,           0,            1,           -1 },
-	{ "st",       NULL,       "calculator",   0,            1,           -1 },
-	{ "st",       NULL,       "newsboat",     0,            1,           -1 },
-	{ "st",       NULL,       "neomutt",      0,            1,           -1 },
-	{ "st",       NULL,       "calcurse",     0,            1,           -1 },
-	{ "st",       NULL,       "ncmpcpp",      0,            1,           -1 },
-	{ "st",       NULL,       "sudo",         0,            1,           -1 },
-	{ "st",       NULL,       "less",         0,            1,           -1 },
 	{ "mpv",      NULL,       NULL,           0,            1,           -1 },
 };
 
@@ -126,10 +119,11 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") },
 	{ 0,                            XK_F1,                     spawn,          SHCMD("firefox") },
-	{ 0,                            XK_F2,                     spawn,          SHCMD("st -g 175x50 -e neomutt") },
-	{ 0,                            XK_F3,                     spawn,          SHCMD("st -g 175x50 -e newsboat") },
-	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t calculator -g 65x20 -e calc") },
-	{ 0,                            XK_F5,                     spawn,          SHCMD("st -g 175x50 -e ncmpcpp") },
+	{ 0,                            XK_F2,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e neomutt") },
+	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e newsboat") },
+	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t scratchpad -g 65x20 -e calc") },
+	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e ncmpcpp") },
+	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e calcurse") },
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
