@@ -124,6 +124,7 @@ static Key keys[] = {
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t scratchpad -g 65x20 -e calc") },
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e ncmpcpp") },
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e calcurse") },
+	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e less -Srf ~/.local/share/weatherreport") },
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
