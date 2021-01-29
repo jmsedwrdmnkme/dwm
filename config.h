@@ -31,6 +31,7 @@ static const Rule rules[] = {
 	/* class      instance    title           tags mask     isfloating   monitor */
 	{ "Zathura",  NULL,       NULL,           0,            1,           -1 },
 	{ "Sxiv",     NULL,       NULL,           0,            1,           -1 },
+	{ "feh",      NULL,       NULL,           0,            1,           -1 },
 	{ "mpv",      NULL,       NULL,           0,            1,           -1 },
 };
 
@@ -41,8 +42,8 @@ static int resizehints = 1;    /* 1 means respect size hints in tiled resizals *
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "﬿",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
