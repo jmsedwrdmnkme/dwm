@@ -6,8 +6,8 @@ static const unsigned int gappx     = 16;        /* gaps between windows */
 static unsigned int snap            = 32;       /* snap pixel */
 static int showbar                  = 1;        /* 0 means no bar */
 static int topbar                   = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "monospace:size=12" };
+static const char dmenufont[]       = "monospace:size=12";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
@@ -120,12 +120,13 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") },
 	{ 0,                            XK_F1,                     spawn,          SHCMD("firefox") },
-	{ 0,                            XK_F2,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e neomutt") },
-	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e newsboat") },
+	{ 0,                            XK_F2,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e neomutt") },
+	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e newsboat") },
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t scratchpad -g 65x20 -e calc") },
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t scratchpad -g 170x32 -e ncmpcpp-ueberzug") },
-	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t scratchpad -g 175x50 -e calcurse") },
+	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e calcurse") },
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e less -Srf ~/.local/share/weatherreport") },
+	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e tuir") },
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
