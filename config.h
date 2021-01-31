@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	{ "Sxiv",     NULL,       NULL,           0,            1,           -1 },
 	{ "feh",      NULL,       NULL,           0,            1,           -1 },
 	{ "mpv",      NULL,       NULL,           0,            1,           -1 },
+	{ "St",       NULL,       "float",        0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -44,7 +45,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "﬿",      tile },    /* first entry is default */
 	{ "",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[M]",    monocle },
 };
 
 /* key definitions */
@@ -120,13 +121,13 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") },
 	{ 0,                            XK_F1,                     spawn,          SHCMD("firefox") },
-	{ 0,                            XK_F2,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e neomutt") },
-	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e newsboat") },
-	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t scratchpad -g 65x20 -e calc") },
-	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t scratchpad -g 170x32 -e ncmpcpp-ueberzug") },
-	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e calcurse") },
-	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e less -Srf ~/.local/share/weatherreport") },
-	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t scratchpad -g 126x42 -e tuir") },
+	{ 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e neomutt") },
+	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e newsboat") },
+	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") },
+	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") },
+	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e calcurse") },
+	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x42 -e less -Srf ~/.local/share/weatherreport") },
+	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t float -g 126x42 -e tuir") },
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
