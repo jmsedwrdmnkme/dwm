@@ -120,12 +120,14 @@ static Key keys[] = {
 	{ 0,			        XF86XK_AudioStop,	   spawn,          SHCMD("mpc stop; kill -35 $(pidof dwmblocks)") },
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") },
-        { 0,                            XK_F1,                     spawn,          SHCMD("firefox") },
-        { 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e neomutt") },
-	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e newsboat") },
-	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") },
-	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") },
-	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e calcurse") },
+        { 0,                            XK_F1,                     spawn,          SHCMD("firefox") }, // Browser
+        { 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e neomutt") }, // Mail
+	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e newsboat") }, // RSS
+	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
+	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
+	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e calcurse") }, // Calendar
+	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x38 -e sh -c 'tput civis;curl -s https://wttr.in/$LOCATION?qF;stty raw;dd bs=1 count=1 of=/dev/null'") }, // Weather
+	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t float -g 110x25 -e sh -c 'sudo xbps-install -Su; exec zsh'") }, // Updates
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
