@@ -110,7 +110,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") },
-	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' --focused -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") },
+	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") },
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("pamixer -t; kill -39 $(pidof dwmblocks)") },
 	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 1; kill -39 $(pidof dwmblocks)") },
 	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 1; kill -39 $(pidof dwmblocks)") },
@@ -136,6 +136,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                                      7)
 	TAGKEYS(                        XK_9,                                      8)
 	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} },
+ 	{ MODKEY,                       XK_F5,                     xrdb,           {.v = NULL } },
 };
 
 /* button definitions */
