@@ -77,49 +77,50 @@ ResourcePref resources[] = {
 		{ "selbordercolor",     STRING,  &selbordercolor },
 		{ "selfgcolor",         STRING,  &selfgcolor },
 		{ "borderpx",          	INTEGER, &borderpx },
-		{ "snap",          		INTEGER, &snap },
+		{ "snap",          	INTEGER, &snap },
 		{ "showbar",          	INTEGER, &showbar },
 		{ "topbar",          	INTEGER, &topbar },
 		{ "nmaster",          	INTEGER, &nmaster },
 		{ "resizehints",       	INTEGER, &resizehints },
-		{ "mfact",      	 	FLOAT,   &mfact },
+		{ "mfact",      	FLOAT,   &mfact },
 };
 
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
-	{ MODKEY,                       XK_d,                      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return,                 spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_grave,                  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY|ShiftMask,             XK_b,                      togglebar,      {0} },
-	{ MODKEY,                       XK_l,                      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_h,                      focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_j,                      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,                      incnmaster,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_h,                      setmfact,       {.f = -0.05} },
-	{ MODKEY|ShiftMask,             XK_l,                      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return,                 zoom,           {0} },
-	{ MODKEY,                       XK_Tab,                    view,           {0} },
-	{ MODKEY,                       XK_q,                      killclient,     {0} },
-	{ MODKEY,                       XK_t,                      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,                      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,                      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,                  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,                  togglefloating, {0} },
-	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },
-	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") },
-	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") },
-	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("pamixer -t; kill -39 $(pidof dwmblocks)") },
-	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 1; kill -39 $(pidof dwmblocks)") },
-	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 1; kill -39 $(pidof dwmblocks)") },
-	{ 0,			        XF86XK_AudioPrev,	   spawn,          SHCMD("mpc prev; kill -35 $(pidof dwmblocks)") },
-	{ 0,			        XF86XK_AudioNext,	   spawn,          SHCMD("mpc next; kill -35 $(pidof dwmblocks)") },
-	{ 0,			        XF86XK_AudioPlay,	   spawn,          SHCMD("mpc toggle; kill -35 $(pidof dwmblocks)") },
-	{ 0,			        XF86XK_AudioStop,	   spawn,          SHCMD("mpc stop; kill -35 $(pidof dwmblocks)") },
-	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") },
-	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") },
+	{ MODKEY,                       XK_d,                      spawn,          {.v = dmenucmd } }, // Open dmenu
+	{ MODKEY,                       XK_Return,                 spawn,          {.v = termcmd } }, // Spawn terminal window
+	{ MODKEY,                       XK_grave,                  togglescratch,  {.v = scratchpadcmd } }, // Spawn terminal scratchpad window
+	{ MODKEY|ShiftMask,             XK_b,                      togglebar,      {0} }, // Hide/Show top bar
+	{ MODKEY,                       XK_l,                      focusstack,     {.i = +1 } }, // Move up window stack
+	{ MODKEY,                       XK_h,                      focusstack,     {.i = -1 } }, // Move down window stack
+	{ MODKEY|ShiftMask,             XK_j,                      incnmaster,     {.i = +1 } }, // Move up window layouts
+	{ MODKEY|ShiftMask,             XK_k,                      incnmaster,     {.i = -1 } }, // Move down window layouts
+	{ MODKEY|ShiftMask,             XK_h,                      setmfact,       {.f = -0.05} }, // Decrease size of master
+	{ MODKEY|ShiftMask,             XK_l,                      setmfact,       {.f = +0.05} }, // Increase size of master
+	{ MODKEY|ShiftMask,             XK_Return,                 zoom,           {0} }, // Switch master with focused window else second in stack
+	{ MODKEY,                       XK_Tab,                    view,           {0} }, // Swtich focused tag to master else second tag
+	{ MODKEY,                       XK_q,                      killclient,     {0} }, // Quit current focused window
+	{ MODKEY,                       XK_t,                      setlayout,      {.v = &layouts[0]} }, // Set tiling layout
+	{ MODKEY,                       XK_f,                      setlayout,      {.v = &layouts[1]} }, // Set floating layout
+	{ MODKEY,                       XK_m,                      setlayout,      {.v = &layouts[2]} }, // Set monocle layout
+	{ MODKEY,                       XK_space,                  setlayout,      {0} }, // Toggle between last two used layouts, else tiling and floating
+	{ MODKEY|ShiftMask,             XK_space,                  togglefloating, {0} }, // Toggle selected window floating
+	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } }, // View all tags
+	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } }, // View current window on all tags
+	{ MODKEY,                       XK_c,                      spawn,          SHCMD("get-colour") }, // Copy HEX colour beneath cursor
+	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
+	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
+	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("pamixer -t; kill -39 $(pidof dwmblocks)") }, // Mute audio
+	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 1; kill -39 $(pidof dwmblocks)") }, // Raise volume
+	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 1; kill -39 $(pidof dwmblocks)") }, // Lower volume
+	{ 0,			        XF86XK_AudioPrev,	   spawn,          SHCMD("mpc prev; kill -35 $(pidof dwmblocks)") }, // Previous track
+	{ 0,			        XF86XK_AudioNext,	   spawn,          SHCMD("mpc next; kill -35 $(pidof dwmblocks)") }, // Next track
+	{ 0,			        XF86XK_AudioPlay,	   spawn,          SHCMD("mpc toggle; kill -35 $(pidof dwmblocks)") }, // Play/Pause track
+	{ 0,			        XF86XK_AudioStop,	   spawn,          SHCMD("mpc stop; kill -35 $(pidof dwmblocks)") }, // Stop playing
+	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") }, // Screen brightness up
+	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") }, // Screen brightness down
         { 0,                            XK_F1,                     spawn,          SHCMD("firefox") }, // Browser
         { 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e neomutt") }, // Mail
 	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e newsboat") }, // RSS
@@ -127,17 +128,17 @@ static Key keys[] = {
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e calcurse") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x38 -e sh -c 'tput civis;curl -s https://wttr.in/$LOCATION?qF;stty raw;dd bs=1 count=1 of=/dev/null'") }, // Weather
-	TAGKEYS(                        XK_1,                                      0)
-	TAGKEYS(                        XK_2,                                      1)
-	TAGKEYS(                        XK_3,                                      2)
-	TAGKEYS(                        XK_4,                                      3)
-	TAGKEYS(                        XK_5,                                      4)
-	TAGKEYS(                        XK_6,                                      5)
-	TAGKEYS(                        XK_7,                                      6)
-	TAGKEYS(                        XK_8,                                      7)
-	TAGKEYS(                        XK_9,                                      8)
-	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} },
- 	{ MODKEY,                       XK_F5,                     xrdb,           {.v = NULL } },
+	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
+	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
+	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
+	TAGKEYS(                        XK_4,                                      3) // Navigate to tag 4
+	TAGKEYS(                        XK_5,                                      4) // Navigate to tag 5
+	TAGKEYS(                        XK_6,                                      5) // Navigate to tag 6
+	TAGKEYS(                        XK_7,                                      6) // Navigate to tag 7
+	TAGKEYS(                        XK_8,                                      7) // Navigate to tag 8
+	TAGKEYS(                        XK_9,                                      8) // Navigate to tag 9
+	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} }, // Kill dwm process, will restart when dwm started within a loop
+ 	{ MODKEY,                       XK_F5,                     xrdb,           {.v = NULL } }, // Reload xresources via xrdb
 };
 
 /* button definitions */
