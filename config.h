@@ -127,7 +127,6 @@ static Key keys[] = {
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e calcurse") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x38 -e sh -c 'tput civis;curl -s https://wttr.in/$LOCATION?qF;stty raw;dd bs=1 count=1 of=/dev/null'") }, // Weather
-	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t float -g 110x25 -e sh -c 'sudo xbps-install -Su; exec zsh'") }, // Updates
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
