@@ -110,6 +110,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } }, // View all tags
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } }, // View current window on all tags
 	{ MODKEY,                       XK_c,                      spawn,          SHCMD("get-colour") }, // Copy HEX colour beneath cursor
+	{ MODKEY,                       XK_o,                      spawn,          SHCMD("dmenu-websearch") }, // Dmenu as browser URL bar
+	{ MODKEY,                       XK_p,                      spawn,          SHCMD("dmenu-pass") }, // Dmenu pass selector
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("pamixer -t; kill -39 $(pidof dwmblocks)") }, // Mute audio
@@ -127,7 +129,7 @@ static Key keys[] = {
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e calcurse") }, // Calendar
-	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x38 -e sh -c 'tput civis;curl -s https://wttr.in/$LOCATION?qF;stty raw;dd bs=1 count=1 of=/dev/null'") }, // Weather
+	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c 'tput civis;curl -s https://wttr.in/$LOCATION?qF;stty raw;dd bs=1 count=1 of=/dev/null'") }, // Weather
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
 	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
