@@ -115,8 +115,8 @@ static Key keys[] = {
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("pamixer -t; kill -39 $(pidof dwmblocks)") }, // Mute audio
-	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 1; kill -39 $(pidof dwmblocks)") }, // Raise volume
-	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 1; kill -39 $(pidof dwmblocks)") }, // Lower volume
+	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 1; kill -39 $(pidof dwmblocks) && vol=\"$(pamixer --get-volume)\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Volume\" \"$vol%\"") }, // Raise volume
+	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 1; kill -39 $(pidof dwmblocks) && vol=\"$(pamixer --get-volume)\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Volume\" \"$vol%\"") }, // Lower volume
 	{ 0,			        XF86XK_AudioPrev,	   spawn,          SHCMD("mpc prev; kill -35 $(pidof dwmblocks)") }, // Previous track
 	{ 0,			        XF86XK_AudioNext,	   spawn,          SHCMD("mpc next; kill -35 $(pidof dwmblocks)") }, // Next track
 	{ 0,			        XF86XK_AudioPlay,	   spawn,          SHCMD("mpc toggle; kill -35 $(pidof dwmblocks)") }, // Play/Pause track
