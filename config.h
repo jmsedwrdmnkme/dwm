@@ -111,8 +111,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } }, // View current window on all tags
 	{ MODKEY,                       XK_c,                      spawn,          SHCMD("get-colour") }, // Copy HEX colour beneath cursor
 	{ MODKEY,                       XK_o,                      spawn,          SHCMD("dmenu-websearch") }, // Dmenu as browser URL bar
-	{ MODKEY,                       XK_p,                      spawn,          SHCMD("dmenu-pass") }, // Dmenu pass selector
+	{ MODKEY,                       XK_p,                      spawn,          SHCMD("dmenu-pass") }, // Dmenu password selector
 	{ MODKEY,                       XK_u,                      spawn,          SHCMD("dmenu-pass-user") }, // Dmenu pass username selector
+	{ MODKEY,                       XK_a,                      spawn,          SHCMD("dmenu-pass-otp") }, // Dmenu pass OTP code selector
 	{ MODKEY,                       XK_y,                      spawn,          SHCMD("dmenu-ytfzf") }, // Dmenu YouTube fzf player
 	{ MODKEY,                       XK_n,                      spawn,          SHCMD("dmenu-notflix") }, // Dmenu torrent streaming search
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
@@ -120,6 +121,9 @@ static Key keys[] = {
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("pamixer -t; kill -39 $(pidof dwmblocks)") }, // Mute audio
 	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 1; kill -39 $(pidof dwmblocks) && vol=\"$(pamixer --get-volume)\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Volume\" \"$vol%\"") }, // Raise volume
 	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 1; kill -39 $(pidof dwmblocks) && vol=\"$(pamixer --get-volume)\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Volume\" \"$vol%\"") }, // Lower volume
+	{ ShiftMask,		        XF86XK_AudioMute,	   spawn,          SHCMD("pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle; kill -45 $(pidof dwmblocks)") }, // Mute microphone
+	{ ShiftMask,		        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pactl set-source-volume alsa_input.pci-0000_00_1f.3.analog-stereo +1%; kill -45 $(pidof dwmblocks) && vol=$(pactl list sources | grep -A 10 $current_source | grep \"Volume:\" | grep -o \"[0-9]\{1,3\}%\" | head -1) && dunstify -h string:x-dunst-stack-tag:mic \"奔 Microphone volume\" \"$vol%\"") }, // Raise microphone input
+	{ ShiftMask,		        XF86XK_AudioLowerVolume,   spawn,          SHCMD("pactl set-source-volume alsa_input.pci-0000_00_1f.3.analog-stereo -1%; kill -45 $(pidof dwmblocks) && vol=$(pactl list sources | grep -A 10 $current_source | grep \"Volume:\" | grep -o \"[0-9]\{1,3\}%\" | head -1) && dunstify -h string:x-dunst-stack-tag:mic \"奔 Microphone volume\" \"$vol%\"") }, // Lower microphone input
 	{ 0,			        XF86XK_AudioPrev,	   spawn,          SHCMD("mpc prev; kill -35 $(pidof dwmblocks)") }, // Previous track
 	{ 0,			        XF86XK_AudioNext,	   spawn,          SHCMD("mpc next; kill -35 $(pidof dwmblocks)") }, // Next track
 	{ 0,			        XF86XK_AudioPlay,	   spawn,          SHCMD("mpc toggle; kill -35 $(pidof dwmblocks)") }, // Play/Pause track
