@@ -131,12 +131,12 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") }, // Screen brightness up
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") }, // Screen brightness down
         { 0,                            XK_F1,                     spawn,          SHCMD("firefox") }, // Browser
-        { 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e neomutt") }, // Mail
-	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e newsboat") }, // RSS
+        { 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e app-mail") }, // Mail
+	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e app-rss") }, // RSS
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
-	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e calcurse") }, // Calendar
-	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c 'tput civis;curl -s https://wttr.in/$LOCATION?qF;stty raw;dd bs=1 count=1 of=/dev/null'") }, // Weather
+	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
+	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
 	{ 0,                            XK_F8,                     spawn,          SHCMD("st -e weechat") }, // Weechat
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
