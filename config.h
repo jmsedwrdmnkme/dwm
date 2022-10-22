@@ -111,9 +111,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } }, // View current window on all tags
 	{ MODKEY,                       XK_c,                      spawn,          SHCMD("get-colour") }, // Copy HEX colour beneath cursor
 	{ MODKEY,                       XK_o,                      spawn,          SHCMD("dmenu-websearch") }, // Dmenu as browser URL bar
-	{ MODKEY,                       XK_p,                      spawn,          SHCMD("dmenu-pass") }, // Dmenu password selector
-	{ MODKEY,                       XK_u,                      spawn,          SHCMD("dmenu-pass-user") }, // Dmenu pass username selector
-	{ MODKEY,                       XK_a,                      spawn,          SHCMD("dmenu-pass-otp") }, // Dmenu pass OTP code selector
+	{ MODKEY,                       XK_p,                      spawn,          SHCMD("dmenu-pass -p") }, // Dmenu password selector
+	{ MODKEY,                       XK_u,                      spawn,          SHCMD("dmenu-pass -u") }, // Dmenu pass username selector
+	{ MODKEY,                       XK_a,                      spawn,          SHCMD("dmenu-pass -a") }, // Dmenu pass OTP code selector
 	{ MODKEY,                       XK_y,                      spawn,          SHCMD("dmenu-ytfzf") }, // Dmenu YouTube fzf player
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
