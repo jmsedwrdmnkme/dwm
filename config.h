@@ -116,7 +116,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_a,                      spawn,          SHCMD("dmenu-pass -a") }, // Dmenu pass OTP code selector
 	{ MODKEY,                       XK_y,                      spawn,          SHCMD("dmenu-ytfzf") }, // Dmenu YouTube fzf player
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("screen-capture") }, // Start screen capture script
-	{ MODKEY,                       XK_i,                      spawn,          SHCMD("ide") }, // Open IDE script
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("pamixer -t; kill -39 $(pidof dwmblocks)") }, // Mute audio
