@@ -137,7 +137,7 @@ static Key keys[] = {
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
-	{ 0,                            XK_F8,                     spawn,          SHCMD("st -e weechat") }, // Weechat
+	{ 0,                            XK_F8,                     spawn,          SHCMD("ferdium") }, // Ferdium
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
 	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
