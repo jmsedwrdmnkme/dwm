@@ -119,8 +119,8 @@ static Key keys[] = {
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -39 $(pidof dwmblocks)") }, // Mute audio
-	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+; kill -39 $(pidof dwmblocks) && vol=\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Volume\" \"$vol%\"") }, // Raise volume
-	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-; kill -39 $(pidof dwmblocks) && vol=\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Volume\" \"$vol%\"") }, // Lower volume
+	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+; kill -39 $(pidof dwmblocks) && vol=\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Speaker volume\" \"$vol%\"") }, // Raise volume
+	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-; kill -39 $(pidof dwmblocks) && vol=\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Speaker volume\" \"$vol%\"") }, // Lower volume
 	{ ShiftMask,		        XF86XK_AudioMute,	   spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; kill -45 $(pidof dwmblocks)") }, // Mute microphone
 	{ ShiftMask,		        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+; kill -45 $(pidof dwmblocks) && vol=$(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//') && dunstify -h string:x-dunst-stack-tag:mic \" Microphone volume\" \"$vol%\"") }, // Raise microphone input
 	{ ShiftMask,		        XF86XK_AudioLowerVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-; kill -45 $(pidof dwmblocks) && vol=(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//') && dunstify -h string:x-dunst-stack-tag:mic \" Microphone volume\" \"$vol%\"") }, // Lower microphone input
@@ -137,9 +137,7 @@ static Key keys[] = {
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
-	{ 0,                            XK_F8,                     spawn,          SHCMD("ferdium") }, // Ferdium
-	{ 0,                            XK_F9,                     spawn,          SHCMD("signal-desktop") }, // Signal
-	{ 0,                            XK_F10,                     spawn,          SHCMD("nicotine") }, // Nicotine
+	{ 0,                            XK_F8,                     spawn,          SHCMD("nicotine") }, // Nicotine
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
 	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
