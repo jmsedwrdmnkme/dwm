@@ -122,8 +122,8 @@ static Key keys[] = {
 	{ 0,			        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+; kill -39 $(pidof dwmblocks) && vol=\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Speaker volume\" \"$vol%\"") }, // Raise volume
 	{ 0,			        XF86XK_AudioLowerVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-; kill -39 $(pidof dwmblocks) && vol=\"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\" && dunstify -h string:x-dunst-stack-tag:volume \"奔 Speaker volume\" \"$vol%\"") }, // Lower volume
 	{ ShiftMask,		        XF86XK_AudioMute,	   spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; kill -45 $(pidof dwmblocks)") }, // Mute microphone
-	{ ShiftMask,		        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+; kill -45 $(pidof dwmblocks) && vol=$(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//') && dunstify -h string:x-dunst-stack-tag:mic \" Microphone volume\" \"$vol%\"") }, // Raise microphone input
-	{ ShiftMask,		        XF86XK_AudioLowerVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-; kill -45 $(pidof dwmblocks) && vol=(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//') && dunstify -h string:x-dunst-stack-tag:mic \" Microphone volume\" \"$vol%\"") }, // Lower microphone input
+	{ ShiftMask,		        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+; kill -45 $(pidof dwmblocks) && mic=$(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//') && dunstify -h string:x-dunst-stack-tag:mic \" Microphone volume\" \"$mic%\"") }, // Raise microphone input
+	{ ShiftMask,		        XF86XK_AudioLowerVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-; kill -45 $(pidof dwmblocks) && mic=(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//') && dunstify -h string:x-dunst-stack-tag:mic \" Microphone volume\" \"$mic%\"") }, // Lower microphone input
 	{ 0,			        XF86XK_AudioPrev,	   spawn,          SHCMD("mpc prev; kill -35 $(pidof dwmblocks)") }, // Previous track
 	{ 0,			        XF86XK_AudioNext,	   spawn,          SHCMD("mpc next; kill -35 $(pidof dwmblocks)") }, // Next track
 	{ 0,			        XF86XK_AudioPlay,	   spawn,          SHCMD("mpc toggle; kill -35 $(pidof dwmblocks)") }, // Play/Pause track
@@ -138,6 +138,7 @@ static Key keys[] = {
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
 	{ 0,                            XK_F8,                     spawn,          SHCMD("nicotine") }, // Nicotine
+	{ MODKEY|ShiftMask,             XK_q,	                   spawn,          SHCMD("xdotool key Super_L+F5") }, // Restart DWM
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
 	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
@@ -147,7 +148,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                                      6) // Navigate to tag 7
 	TAGKEYS(                        XK_8,                                      7) // Navigate to tag 8
 	TAGKEYS(                        XK_9,                                      8) // Navigate to tag 9
-	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} }, // Kill dwm process, will restart when dwm started within a loop
  	{ MODKEY,                       XK_F5,                     xrdb,           {.v = NULL } }, // Reload xresources via xrdb
 };
 
