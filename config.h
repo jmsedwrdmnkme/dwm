@@ -139,7 +139,6 @@ static Key keys[] = {
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
 	{ 0,                            XK_F8,                     spawn,          SHCMD("nicotine") }, // Nicotine
-	{ MODKEY|ShiftMask,             XK_q,	                   spawn,          SHCMD("xdotool key Super_L+F5") }, // Restart DWM
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
 	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
@@ -149,7 +148,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                                      6) // Navigate to tag 7
 	TAGKEYS(                        XK_8,                                      7) // Navigate to tag 8
 	TAGKEYS(                        XK_9,                                      8) // Navigate to tag 9
- 	{ MODKEY,                       XK_F5,                     xrdb,           {.v = NULL } }, // Reload xresources via xrdb
+        { MODKEY|ShiftMask,             XK_q,                      quit,           {0} }, // Kill dwm process, will restart when dwm started within a loop
 };
 
 /* button definitions */
