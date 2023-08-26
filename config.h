@@ -2,7 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx        = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 16;        /* gaps between windows */
+static const unsigned int gappx     = 16;       /* gaps between windows */
 static unsigned int snap            = 32;       /* snap pixel */
 static int showbar                  = 1;        /* 0 means no bar */
 static int topbar                   = 1;        /* 0 means bottom bar */
@@ -30,7 +30,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title           tags mask     isfloating   monitor */
 	{ "Zathura",  NULL,       NULL,           0,            1,           -1 },
-	{ "Sxiv",     NULL,       NULL,           0,            1,           -1 },
+	{ "Nsxiv",    NULL,       NULL,           0,            1,           -1 },
 	{ "feh",      NULL,       NULL,           0,            1,           -1 },
 	{ "mpv",      NULL,       NULL,           0,            1,           -1 },
 	{ "St",       NULL,       "float",        0,            1,           -1 },
@@ -118,6 +118,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_y,                      spawn,          SHCMD("dmenu-ytfzf") }, // Dmenu YouTube fzf player
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("screen-capture") }, // Start screen capture script
 	{ MODKEY,                       XK_v,                      spawn,          SHCMD("mpvnohup") }, // Dmenu mpv video URL player
+	{ MODKEY,                       XK_k,                      spawn,          SHCMD("keychron-functions-fix") }, // Set external keyboard map and repeat rate correctly
+	{ MODKEY,                       XK_e,                      spawn,          SHCMD("external-monitor") }, // Xrandr external monitor setup hotkey
+	{ MODKEY|ShiftMask,             XK_e,                      spawn,          SHCMD("external-monitor-remove") }, // Xrandr external monitor remove hotkey
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -39 $(pidof dwmblocks)") }, // Mute audio
