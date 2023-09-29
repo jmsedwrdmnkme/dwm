@@ -40,6 +40,7 @@ static const Rule rules[] = {
 static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static int nmaster     = 1;    /* number of clients in master area */
 static int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int statusall   = 1;    /* 1 means status is shown in all bars, not just active monitor */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */

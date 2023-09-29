@@ -789,7 +789,7 @@ drawbar(Monitor *m)
 		return;
 
 	/* draw status first so it can be overdrawn by tags later */
-	if (m == selmon) { /* status is only drawn on selected monitor */
+        if (m == selmon || statusall) { /* status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
 		drw_text(drw, m->ww - tw, 0, tw, bh, 0, stext, 0);
@@ -1652,7 +1652,7 @@ setlayout(const Arg *arg)
 	if (selmon->sel)
 		arrange(selmon);
 	else
-		drawbar(selmon);
+		statusall ? drawbars() : drawbar(selmon);
 }
 
 /* arg > 1.0 will set mfact absolutely */
@@ -2191,7 +2191,7 @@ updatestatus(void)
 		strcpy(stext, "dwm-"VERSION);
 	else
 		copyvalidchars(stext, rawstext);
-	drawbar(selmon);
+	statusall ? drawbars() : drawbar(selmon);
 }
 
 void
