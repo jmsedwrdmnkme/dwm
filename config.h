@@ -110,6 +110,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,                  togglefloating, {0} }, // Toggle selected window floating
 	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } }, // View all tags
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } }, // View current window on all tags
+	{ MODKEY,                       XK_comma,                  focusmon,       {.i = -1 } }, // Focus monitor(s) to left
+	{ MODKEY,                       XK_period,                 focusmon,       {.i = +1 } }, // Focus monitor(s) to right
+	{ MODKEY|ShiftMask,             XK_comma,                  tagmon,         {.i = -1 } }, // Send window to monitor(s) to left
+	{ MODKEY|ShiftMask,             XK_period,                 tagmon,         {.i = +1 } }, // Send window to monitor(s) to right
 	{ MODKEY,                       XK_c,                      spawn,          SHCMD("get-colour") }, // Copy HEX colour beneath cursor
 	{ MODKEY,                       XK_o,                      spawn,          SHCMD("dmenu-websearch") }, // Dmenu as browser URL bar
 	{ MODKEY,                       XK_p,                      spawn,          SHCMD("dmenu-pass -p") }, // Dmenu password selector
