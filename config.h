@@ -124,8 +124,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("screen-capture") }, // Start screen capture script
 	{ MODKEY,                       XK_v,                      spawn,          SHCMD("mpvnohup") }, // Dmenu mpv video URL player
 	{ MODKEY,                       XK_k,                      spawn,          SHCMD("keychron-functions-fix") }, // Set external keyboard map and repeat rate correctly
-	{ MODKEY,                       XK_e,                      spawn,          SHCMD("external-monitor") }, // Xrandr external monitor setup hotkey
-	{ MODKEY|ShiftMask,             XK_e,                      spawn,          SHCMD("external-monitor-remove") }, // Xrandr external monitor remove hotkey
+	{ MODKEY,                       XK_e,                      spawn,          SHCMD("external-monitor -e") }, // Xrandr external monitor setup hotkey
+	{ MODKEY|ShiftMask,             XK_e,                      spawn,          SHCMD("external-monitor -d") }, // Xrandr external monitor remove hotkey
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -39 $(pidof dwmblocks)") }, // Mute audio
