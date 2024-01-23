@@ -134,10 +134,10 @@ static Key keys[] = {
 	{ ShiftMask,		        XF86XK_AudioMute,	   spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; kill -45 $(pidof dwmblocks)") }, // Mute microphone
 	{ ShiftMask,		        XF86XK_AudioRaiseVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+; kill -45 $(pidof dwmblocks) && mic=\"$(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\"") }, // Raise microphone input
 	{ ShiftMask,		        XF86XK_AudioLowerVolume,   spawn,          SHCMD("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-; kill -45 $(pidof dwmblocks) && mic=\"$(wpctl get-volume @DEFAULT_AUDIO_SOURCEK@ | tr -d '.' | egrep -o '[0-9]{3}' | sed 's/^0*//')\"") }, // Lower microphone input
-	{ 0,			        XF86XK_AudioPrev,	   spawn,          SHCMD("mpc prev; kill -35 $(pidof dwmblocks)") }, // Previous track
-	{ 0,			        XF86XK_AudioNext,	   spawn,          SHCMD("mpc next; kill -35 $(pidof dwmblocks)") }, // Next track
-	{ 0,			        XF86XK_AudioPlay,	   spawn,          SHCMD("mpc toggle; kill -35 $(pidof dwmblocks)") }, // Play/Pause track
-	{ 0,			        XF86XK_AudioStop,	   spawn,          SHCMD("mpc stop; kill -35 $(pidof dwmblocks)") }, // Stop playing
+	{ MODKEY,		        XK_Left,           	   spawn,          SHCMD("mpc prev; kill -35 $(pidof dwmblocks)") }, // Previous track
+	{ MODKEY,		        XK_Right,          	   spawn,          SHCMD("mpc next; kill -35 $(pidof dwmblocks)") }, // Next track
+	{ MODKEY,		        XK_Up,             	   spawn,          SHCMD("mpc toggle; kill -35 $(pidof dwmblocks)") }, // Play/Pause track
+	{ MODKEY,		        XK_Down,           	   spawn,          SHCMD("mpc stop; kill -35 $(pidof dwmblocks)") }, // Stop playing
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 5 && dunstify -h string:x-dunst-stack-tag:backlight \"🖵 Backlight $(xbacklight -get)%\"") }, // Screen brightness up
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 5 && dunstify -h string:x-dunst-stack-tag:backlight \"🖵 Backlight $(xbacklight -get)%\"") }, // Screen brightness down
         { 0,                            XK_F1,                     spawn,          SHCMD("firefox") }, // Browser
