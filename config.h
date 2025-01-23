@@ -144,7 +144,7 @@ static Key keys[] = {
         { 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e app-mail") }, // Mail
 	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e app-rss") }, // RSS
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
-	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp-ueberzug") }, // Music
+	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
 	{ 0,                            XK_F8,                     spawn,          SHCMD("nicotine") }, // Nicotine
