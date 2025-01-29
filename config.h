@@ -146,7 +146,7 @@ static Key keys[] = {
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
         { 0,                            XK_F8,                     spawn,          SHCMD("nicotine") }, // Nicotine
-	{ MODKEY|ShiftMask,             XK_l,                      spawn,          SHCMD("st -t float -g 126x39 -e ollama run llama3.2") }, // Ollama LLM client
+	{ 0,                            XK_F9,                     spawn,          SHCMD("st -t float -g 126x39 -e ollama run llama3.2") }, // Ollama LLM client
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
 	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
