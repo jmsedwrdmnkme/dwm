@@ -114,14 +114,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,                 focusmon,       {.i = +1 } }, // Focus monitor(s) to right
 	{ MODKEY|ShiftMask,             XK_comma,                  tagmon,         {.i = -1 } }, // Send window to monitor(s) to left
 	{ MODKEY|ShiftMask,             XK_period,                 tagmon,         {.i = +1 } }, // Send window to monitor(s) to right
-	{ MODKEY|ShiftMask,             XK_a,                      spawn,          SHCMD("album-art") }, // View current track album art
 	{ MODKEY,                       XK_c,                      spawn,          SHCMD("get-colour") }, // Copy HEX colour beneath cursor
 	{ MODKEY,                       XK_o,                      spawn,          SHCMD("dmenu-websearch") }, // Dmenu as browser URL bar
 	{ MODKEY,                       XK_p,                      spawn,          SHCMD("dmenu-pass -p") }, // Dmenu password selector
 	{ MODKEY|ShiftMask,             XK_p,                      spawn,          SHCMD("power-menu") }, // Prompt with power menu
 	{ MODKEY,                       XK_u,                      spawn,          SHCMD("dmenu-pass -u") }, // Dmenu pass username selector
 	{ MODKEY,                       XK_a,                      spawn,          SHCMD("dmenu-pass -a") }, // Dmenu pass OTP code selector
-	{ MODKEY,                       XK_y,                      spawn,          SHCMD("dmenu-ytfzf") }, // Dmenu YouTube fzf player
 	{ MODKEY,                       XK_s,                      spawn,          SHCMD("screen-capture") }, // Start screen capture script
 	{ MODKEY,                       XK_v,                      spawn,          SHCMD("mpvnohup") }, // Dmenu mpv video URL player
 	{ MODKEY|ShiftMask,             XK_v,                      spawn,          SHCMD("dmenu-vpn") }, // Dmenu openvpn
@@ -145,9 +143,8 @@ static Key keys[] = {
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
-	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 126x39 -e sh -c app-weather") }, // Weather
-        { 0,                            XK_F8,                     spawn,          SHCMD("nicotine") }, // Nicotine
-	{ 0,                            XK_F9,                     spawn,          SHCMD("st -t float -g 126x39 -e ollama-run") }, // Ollama LLM client
+        { 0,                            XK_F7,                     spawn,          SHCMD("nicotine") }, // Nicotine
+	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t float -g 126x39 -e ollama-run") }, // Ollama LLM client
 	TAGKEYS(                        XK_1,                                      0) // Navigate to tag 1
 	TAGKEYS(                        XK_2,                                      1) // Navigate to tag 2
 	TAGKEYS(                        XK_3,                                      2) // Navigate to tag 3
