@@ -120,7 +120,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,                      spawn,          SHCMD("power-menu") }, // Prompt with power menu
 	{ MODKEY,                       XK_u,                      spawn,          SHCMD("dmenu-pass -u") }, // Dmenu pass username selector
 	{ MODKEY,                       XK_a,                      spawn,          SHCMD("dmenu-pass -a") }, // Dmenu pass OTP code selector
-	{ MODKEY,                       XK_s,                      spawn,          SHCMD("screen-capture") }, // Start screen capture script
 	{ MODKEY,                       XK_v,                      spawn,          SHCMD("mpvnohup") }, // Dmenu mpv video URL player
 	{ MODKEY|ShiftMask,             XK_v,                      spawn,          SHCMD("dmenu-vpn") }, // Dmenu openvpn
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
@@ -154,7 +153,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                                      6) // Navigate to tag 7
 	TAGKEYS(                        XK_8,                                      7) // Navigate to tag 8
 	TAGKEYS(                        XK_9,                                      8) // Navigate to tag 9
-        { MODKEY|ShiftMask,             XK_q,                      quit,           {0} }, // Kill dwm process, will restart when dwm started within a loop
 };
 
 /* button definitions */
