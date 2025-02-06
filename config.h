@@ -136,7 +136,7 @@ static Key keys[] = {
 	{ MODKEY,		        XK_Down,           	   spawn,          SHCMD("mpc stop; kill -35 $(pidof dwmblocks)") }, // Stop playing
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 5 && dunstify -h string:x-dunst-stack-tag:backlight \"🖵 Backlight $(xbacklight -get)%\"") }, // Screen brightness up
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 5 && dunstify -h string:x-dunst-stack-tag:backlight \"🖵 Backlight $(xbacklight -get)%\"") }, // Screen brightness down
-        { 0,                            XK_F1,                     spawn,          SHCMD("firefox") }, // Browser
+        { 0,                            XK_F1,                     spawn,          SHCMD("HOME=$XDG_DATA_HOME/firefox firefox --profile $HOME/.config/firefox/") }, // Browser
         { 0,                            XK_F2,                     spawn,          SHCMD("st -t float -g 126x42 -e app-mail") }, // Mail
 	{ 0,                            XK_F3,                     spawn,          SHCMD("st -t float -g 126x42 -e app-rss") }, // RSS
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
