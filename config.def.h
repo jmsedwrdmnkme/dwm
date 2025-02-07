@@ -27,12 +27,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Zathura",  NULL,       NULL,           0,            1,           -1 },
-	{ "Nsxiv",    NULL,       NULL,           0,            1,           -1 },
-	{ "feh",      NULL,       NULL,           0,            1,           -1 },
-	{ "mpv",      NULL,       NULL,           0,            1,           -1 },
-	{ "St",       NULL,       "float",        0,            1,           -1 },
+	/* class      instance    title       tags mask  iscentered   isfloating   monitor */
+	{ "Zathura",  NULL,       NULL,       0,         1,           1,           -1 },
+	{ "Nsxiv",    NULL,       NULL,       0,         1,           1,           -1 },
+	{ "feh",      NULL,       NULL,       0,         1,           1,           -1 },
+	{ "mpv",      NULL,       NULL,       0,         1,           1,           -1 },
+	{ "St",       NULL,       "float",    0,         1,           1,           -1 },
 };
 
 /* layout(s) */
