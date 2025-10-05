@@ -102,9 +102,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,                      spawn,          SHCMD("power-menu") }, // Prompt with power menu
 	{ MODKEY,                       XK_u,                      spawn,          SHCMD("dmenu-pass -u") }, // Dmenu pass username selector
 	{ MODKEY,                       XK_a,                      spawn,          SHCMD("dmenu-pass -a") }, // Dmenu pass OTP code selector
-	{ MODKEY,                       XK_v,                      spawn,          SHCMD("mpvnohup") }, // Dmenu mpv video URL player
-	{ MODKEY|ShiftMask,             XK_v,                      spawn,          SHCMD("dmenu-vpn") }, // Dmenu openvpn
-	{ MODKEY|ShiftMask,             XK_t,                      spawn,          SHCMD("dmenu-translate") }, // Dmenu translate
 	{ 0,                            XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Pictures/'; notify-send 'Screenshot taken'") }, // Take full display screen shot
 	{ ShiftMask,                    XK_Print,   	           spawn,          SHCMD("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -s -e 'mv $f ~/Pictures/'; notify-send 'Window screenshot taken'") }, // Take selected area screen shot
 	{ 0,			        XF86XK_AudioMute,	   spawn,          SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -39 $(pidof dwmblocks)") }, // Mute audio
@@ -125,8 +122,6 @@ static const Key keys[] = {
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
-        { 0,                            XK_F7,                     spawn,          SHCMD("nicotine") }, // Nicotine
-	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t float -g 126x39 -e ollama-run") }, // Ollama LLM client
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
