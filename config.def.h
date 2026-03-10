@@ -123,7 +123,7 @@ static const Key keys[] = {
 	{ 0,                            XK_F4,                     spawn,          SHCMD("st -t float -g 65x20 -e calc") }, // Calculator
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
-	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 170x65 -e ollama-run") }, // Calendar
+	{ 0,                            XK_F8,                     spawn,          SHCMD("st -t float -g 170x42 -e ollama-run") }, // Ollama
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
