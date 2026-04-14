@@ -32,8 +32,8 @@ static const Rule rules[] = {
 	{ "Nsxiv",            NULL,       NULL,       0,         1,           1,           -1 },
 	{ "feh",              NULL,       NULL,       0,         1,           1,           -1 },
 	{ "mpv",              NULL,       NULL,       0,         1,           1,           -1 },
+	{ "Tor Browser",      NULL,       NULL,       0,         1,           1,           -1 },
 	{ "St",               NULL,       "float",    0,         1,           1,           -1 },
-	{ "tor-browser",      NULL,       "float",    0,         1,           1,           -1 },
 };
 
 /* layout(s) */
@@ -126,6 +126,7 @@ static const Key keys[] = {
 	{ 0,                            XK_F5,                     spawn,          SHCMD("st -t float -g 170x32 -e ncmpcpp") }, // Music
 	{ 0,                            XK_F6,                     spawn,          SHCMD("st -t float -g 126x42 -e app-time") }, // Calendar
 	{ 0,                            XK_F7,                     spawn,          SHCMD("st -t float -g 170x42 -e ollama-run") }, // Ollama
+        { 0,                            XK_F8,                     spawn,          SHCMD("tor-browser") }, // Tor Browser
 	TAGKEYS(                        XK_1,                                      0)
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
