@@ -458,7 +458,7 @@ buttonpress(XEvent *e)
 			arg.ui = 1 << i;
 		} else if (ev->x < x + TEXTW(selmon->ltsymbol))
 			click = ClkLtSymbol;
-		else if (ev->x > selmon->ww - statusw) {
+		else if (ev->x > selmon->ww - statusw - (int)TEXTW(stext) + lrpad - 2) {
 			x = selmon->ww - statusw;
 			click = ClkStatusText;
 			statussig = 0;
