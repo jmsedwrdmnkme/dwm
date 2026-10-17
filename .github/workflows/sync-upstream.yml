@@ -1,0 +1,78 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # daily at 03:00 UTC
+  workflow_dispatch: # allow manual runs
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+env:
+  UPSTREAM_URL: https://git.suckless.org/dwm
+  UPSTREAM_BRANCH: master
+  SYNC_BRANCH: upstream-sync
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch upstream
+        run: |
+          git remote add upstream "$UPSTREAM_URL"
+          git fetch upstream "$UPSTREAM_BRANCH"
+
+      - name: Check for new upstream commits
+        id: check
+        run: |
+          BASE_BRANCH="${{ github.event.repository.default_branch }}"
+          echo "base=$BASE_BRANCH" >> "$GITHUB_OUTPUT"
+
+          NEW_COMMITS=$(git rev-list --count "origin/$BASE_BRANCH..upstream/$UPSTREAM_BRANCH")
+          echo "count=$NEW_COMMITS" >> "$GITHUB_OUTPUT"
+          echo "Upstream has $NEW_COMMITS commit(s) not in $BASE_BRANCH"
+
+          {
+            echo "log<<EOF"
+            git log --no-merges --pretty='- %h %s (%an)' "origin/$BASE_BRANCH..upstream/$UPSTREAM_BRANCH"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Push sync branch
+        if: steps.check.outputs.count != '0'
+        run: |
+          git push --force origin "refs/remotes/upstream/$UPSTREAM_BRANCH:refs/heads/$SYNC_BRANCH"
+
+      - name: Create or update pull request
+        if: steps.check.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE: ${{ steps.check.outputs.base }}
+          COUNT: ${{ steps.check.outputs.count }}
+          LOG: ${{ steps.check.outputs.log }}
+        run: |
+          BODY=$(printf 'Automated sync from %s (%s).\n\n%s new commit(s):\n\n%s\n' \
+            "$UPSTREAM_URL" "$UPSTREAM_BRANCH" "$COUNT" "$LOG")
+
+          EXISTING=$(gh pr list --head "$SYNC_BRANCH" --base "$BASE" --state open --json number --jq '.[0].number')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Updating existing PR #$EXISTING"
+            gh pr edit "$EXISTING" --body "$BODY"
+          else
+            gh pr create \
+              --head "$SYNC_BRANCH" \
+              --base "$BASE" \
+              --title "Sync with upstream $(basename "$UPSTREAM_URL")" \
+              --body "$BODY"
+          fi
