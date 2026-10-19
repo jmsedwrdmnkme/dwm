@@ -1152,6 +1152,10 @@ manage(Window w, XWindowAttributes *wa)
 	grabbuttons(c, 0);
 	if (!c->isfloating)
 		c->isfloating = c->oldstate = trans != None || c->isfixed;
+	if (c->isfloating && !c->isfullscreen) {
+		c->x = c->mon->wx + (c->mon->ww - WIDTH(c)) / 2;
+		c->y = c->mon->wy + (c->mon->wh - HEIGHT(c)) / 2;
+	}
 	if (c->isfloating)
 		XRaiseWindow(dpy, c->win);
 	attach(c);
