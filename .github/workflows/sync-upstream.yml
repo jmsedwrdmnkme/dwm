@@ -56,7 +56,8 @@ jobs:
       - name: Create or update pull request
         if: steps.check.outputs.count != '0'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           BASE: ${{ steps.check.outputs.base }}
           COUNT: ${{ steps.check.outputs.count }}
           LOG: ${{ steps.check.outputs.log }}
