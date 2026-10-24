@@ -116,7 +116,7 @@ static const Key keys[] = {
   { MODKEY,		                    XK_Left,           	        spawn,          SHCMD("mpc prev") }, // Previous track
   { MODKEY,		                    XK_Right,          	        spawn,          SHCMD("mpc next") }, // Next track
   { MODKEY,		                    XK_Up,             	        spawn,          SHCMD("mpc toggle") }, // Play/Pause track
-  { MODKEY,		                    XK_Down,           	        spawn,          SHCMD("mpc stop)") }, // Stop playing
+  { MODKEY,		                    XK_Down,           	        spawn,          SHCMD("mpc stop") }, // Stop playing
   { 0,                            XF86XK_MonBrightnessUp,     spawn,          SHCMD("light -A 5 && dunstify -h string:x-dunst-stack-tag:backlight \"🖵 Backlight $(light)%\"") }, // Screen brightness up
   { 0,                            XF86XK_MonBrightnessDown,   spawn,          SHCMD("light -U 5 && dunstify -h string:x-dunst-stack-tag:backlight \"🖵 Backlight $(light)%\"") }, // Screen brightness down
   { 0,                            XK_F1,                      spawn,          SHCMD("$BROWSER") }, // Browser
