@@ -2336,10 +2336,16 @@ main(int argc, char *argv[])
 		die("pledge");
 #endif /* __OpenBSD__ */
 	scan();
+	if (getenv("DWM_RESTARTED")) {
+		unsetenv("DWM_RESTARTED"); /* keep it out of programs spawned later */
+		spawn(&(Arg){ .v = (const char*[]){ "notify-send", "dwm", "Restarted", NULL } });
+	}
 	run();
 	cleanup();
 	XCloseDisplay(dpy);
-	if (restarting)
+	if (restarting) {
+		setenv("DWM_RESTARTED", "1", 1);
 		execvp(argv[0], argv); /* replace ourselves with the new binary */
+	}
 	return EXIT_SUCCESS;
 }
